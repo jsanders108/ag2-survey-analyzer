@@ -1,0 +1,380 @@
+# Survey Results
+
+## Frequency Tables
+## Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum?
+| Response                                      |   Count |   Percentage |
+|:----------------------------------------------|--------:|-------------:|
+| Yes                                           |     148 |      83.1461 |
+| No (just hearing about it now in this survey) |      29 |      16.2921 |
+
+## How familiar are you with cryptocurrencies in general?
+| Response            |   Count |   Percentage |
+|:--------------------|--------:|-------------:|
+| Not at all familiar |      54 |      30.3371 |
+| Slightly familiar   |      51 |      28.6517 |
+| Moderately familiar |      28 |      15.7303 |
+| Extremely familiar  |      26 |      14.6067 |
+| Very familiar       |      19 |      10.6742 |
+
+## What is your overall opinion of cryptocurrencies?
+| Response                                                  |   Count |   Percentage |
+|:----------------------------------------------------------|--------:|-------------:|
+| Neutral                                                   |      74 |      41.573  |
+| Very favorable                                            |      26 |      14.6067 |
+| Very unfavorable                                          |      22 |      12.3596 |
+| Favorable                                                 |      19 |      10.6742 |
+| I have never heard of cryptocurrencies before this survey |      18 |      10.1124 |
+| Unfavorable                                               |      18 |      10.1124 |
+
+## Which of the following statements applies to you?
+| Response                                                     |   Count |   Percentage |
+|:-------------------------------------------------------------|--------:|-------------:|
+| I have never owned cryptocurrency                            |     112 |      62.9213 |
+| I currently own cryptocurrency (such as Bitcoin or Ethereum) |      36 |      20.2247 |
+| I have previously owned cryptocurrency, but no longer do     |      29 |      16.2921 |
+
+## How likely are you to purchase cryptocurrency in the future?
+| Response      |   Count |   Percentage |
+|:--------------|--------:|-------------:|
+| Very unlikely |      54 |      30.3371 |
+| Neutral       |      45 |      25.2809 |
+| Likely        |      30 |      16.8539 |
+| Unlikely      |      25 |      14.0449 |
+| Very likely   |      24 |      13.4831 |
+
+## Overall, how would you rate your computer skills? (e.g., your ability to learn and use software programs, use a smartphone device, etc.)
+| Response   |   Count |   Percentage |
+|:-----------|--------:|-------------:|
+| Moderate   |      74 |     41.573   |
+| Very good  |      44 |     24.7191  |
+| Excellent  |      38 |     21.3483  |
+| Poor       |      12 |      6.74157 |
+| Very poor  |      10 |      5.61798 |
+
+## How old are you?
+| Response   |   Count |   Percentage |
+|:-----------|--------:|-------------:|
+| 35-44      |      37 |    20.7865   |
+| 25-34      |      35 |    19.6629   |
+| 45-54      |      30 |    16.8539   |
+| 55-64      |      29 |    16.2921   |
+| 18-24      |      26 |    14.6067   |
+| Above 64   |      20 |    11.236    |
+| Under 18   |       1 |     0.561798 |
+
+## Which of the following best describes your education status?
+| Response                                                          |   Count |   Percentage |
+|:------------------------------------------------------------------|--------:|-------------:|
+| Secondary School / High School                                    |      88 |     49.4382  |
+| University Undergraduate (Bachelors)                              |      37 |     20.7865  |
+| Others (e.g. Junior College, Pre-University, Vocational, Academy) |      21 |     11.7978  |
+| University Postgraduate (Master)                                  |      16 |      8.98876 |
+| University Postgraduate (PhD)                                     |       7 |      3.93258 |
+| No formal education                                               |       6 |      3.37079 |
+| Primary/Elementary School                                         |       3 |      1.68539 |
+
+## What is your gender?
+| Response   |   Count |   Percentage |
+|:-----------|--------:|-------------:|
+| Female     |     117 |      65.7303 |
+| Male       |      59 |      33.1461 |
+| Other      |       2 |       1.1236 |
+
+## What is your current annual household income level?
+| Response             |   Count |   Percentage |
+|:---------------------|--------:|-------------:|
+| $20,000 to $39,999   |      56 |     31.4607  |
+| Under $20,000        |      46 |     25.8427  |
+| $40,000 to $59,999   |      30 |     16.8539  |
+| $140,000 or more     |      14 |      7.86517 |
+| $60,000 to $79,999   |      14 |      7.86517 |
+| $80,000 to $99,999   |       7 |      3.93258 |
+| $100,000 to $119,999 |       6 |      3.37079 |
+| $120,000 to $139,999 |       5 |      2.80899 |
+
+
+## Crosstabulations and Chi-Square Test Results
+### Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum? vs How old are you?
+| Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum?   |   18-24 |   25-34 |   35-44 |   45-54 |    55-64 |   Above 64 |
+|:-----------------------------------------------------------------------------------|--------:|--------:|--------:|--------:|---------:|-----------:|
+| No (just hearing about it now in this survey)                                      | 24.1379 | 24.1379 | 13.7931 | 20.6897 |  3.44828 |    13.7931 |
+| Yes                                                                                | 12.8378 | 18.9189 | 22.2973 | 16.2162 | 18.9189  |    10.8108 |
+| All                                                                                | 14.6893 | 19.774  | 20.904  | 16.9492 | 16.3842  |    11.2994 |
+
+**Chi-Square Statistic**: 7.3003
+**p-value**: 0.1993
+
+**Not statistically significant**
+
+### Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum? vs Which of the following best describes your education status?
+| Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum?   |   No formal education |   Others (e.g. Junior College, Pre-University, Vocational, Academy) |   Primary/Elementary School |   Secondary School / High School |   University Postgraduate (Master) |   University Postgraduate (PhD) |   University Undergraduate (Bachelors) |
+|:-----------------------------------------------------------------------------------|----------------------:|--------------------------------------------------------------------:|----------------------------:|---------------------------------:|-----------------------------------:|--------------------------------:|---------------------------------------:|
+| No (just hearing about it now in this survey)                                      |               3.44828 |                                                             3.44828 |                     0       |                          75.8621 |                            6.89655 |                         6.89655 |                                3.44828 |
+| Yes                                                                                |               2.7027  |                                                            13.5135  |                     2.02703 |                          44.5946 |                            9.45946 |                         3.37838 |                               24.3243  |
+| All                                                                                |               2.82486 |                                                            11.8644  |                     1.69492 |                          49.7175 |                            9.03955 |                         3.9548  |                               20.904   |
+
+**Chi-Square Statistic**: 13.4649
+**p-value**: 0.0362
+
+**Statistically significant** (p < 0.05)
+
+### Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum? vs What is your gender?
+| Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum?   |   Female |    Male |   Other |
+|:-----------------------------------------------------------------------------------|---------:|--------:|--------:|
+| No (just hearing about it now in this survey)                                      |  82.7586 | 17.2414 | 0       |
+| Yes                                                                                |  62.1622 | 36.4865 | 1.35135 |
+| All                                                                                |  65.5367 | 33.3333 | 1.12994 |
+
+**Chi-Square Statistic**: 4.6558
+**p-value**: 0.0975
+
+**Not statistically significant**
+
+### Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum? vs What is your current annual household income level?
+| Have you ever heard or read about cryptocurrencies such as Bitcoin and Ethereum?   |   $100,000 to $119,999 |   $120,000 to $139,999 |   $140,000 or more |   $20,000 to $39,999 |   $40,000 to $59,999 |   $60,000 to $79,999 |   $80,000 to $99,999 |   Under $20,000 |
+|:-----------------------------------------------------------------------------------|-----------------------:|-----------------------:|-------------------:|---------------------:|---------------------:|---------------------:|---------------------:|----------------:|
+| No (just hearing about it now in this survey)                                      |                6.89655 |                0       |            6.89655 |              17.2414 |              6.89655 |              6.89655 |              3.44828 |         51.7241 |
+| Yes                                                                                |                2.7027  |                3.37838 |            8.10811 |              34.4595 |             18.9189  |              8.10811 |              4.05405 |         20.2703 |
+| All                                                                                |                3.38983 |                2.82486 |            7.9096  |              31.6384 |             16.9492  |              7.9096  |              3.9548  |         25.4237 |
+
+**Chi-Square Statistic**: 16.1266
+**p-value**: 0.0240
+
+**Statistically significant** (p < 0.05)
+
+### How familiar are you with cryptocurrencies in general? vs How old are you?
+| How familiar are you with cryptocurrencies in general?   |    18-24 |    25-34 |   35-44 |    45-54 |    55-64 |   Above 64 |   Under 18 |
+|:---------------------------------------------------------|---------:|---------:|--------:|---------:|---------:|-----------:|-----------:|
+| Extremely familiar                                       | 19.2308  | 34.6154  | 26.9231 |  7.69231 |  3.84615 |    7.69231 |   0        |
+| Moderately familiar                                      | 10.7143  | 21.4286  | 21.4286 | 17.8571  | 14.2857  |   14.2857  |   0        |
+| Not at all familiar                                      | 22.2222  |  5.55556 | 24.0741 | 12.963   | 20.3704  |   12.963   |   1.85185  |
+| Slightly familiar                                        |  9.80392 | 25.4902  | 15.6863 | 19.6078  | 17.6471  |   11.7647  |   0        |
+| Very familiar                                            |  5.26316 | 21.0526  | 15.7895 | 31.5789  | 21.0526  |    5.26316 |   0        |
+| All                                                      | 14.6067  | 19.6629  | 20.7865 | 16.8539  | 16.2921  |   11.236   |   0.561798 |
+
+**Chi-Square Statistic**: 27.2083
+**p-value**: 0.2948
+
+**Not statistically significant**
+
+### How familiar are you with cryptocurrencies in general? vs Which of the following best describes your education status?
+| How familiar are you with cryptocurrencies in general?   |   No formal education |   Others (e.g. Junior College, Pre-University, Vocational, Academy) |   Primary/Elementary School |   Secondary School / High School |   University Postgraduate (Master) |   University Postgraduate (PhD) |   University Undergraduate (Bachelors) |
+|:---------------------------------------------------------|----------------------:|--------------------------------------------------------------------:|----------------------------:|---------------------------------:|-----------------------------------:|--------------------------------:|---------------------------------------:|
+| Extremely familiar                                       |               3.84615 |                                                             3.84615 |                     0       |                          30.7692 |                           11.5385  |                        11.5385  |                                38.4615 |
+| Moderately familiar                                      |               0       |                                                            14.2857  |                     7.14286 |                          46.4286 |                            3.57143 |                        10.7143  |                                17.8571 |
+| Not at all familiar                                      |               5.55556 |                                                             9.25926 |                     0       |                          64.8148 |                            5.55556 |                         1.85185 |                                12.963  |
+| Slightly familiar                                        |               3.92157 |                                                            17.6471  |                     0       |                          49.0196 |                           11.7647  |                         0       |                                17.6471 |
+| Very familiar                                            |               0       |                                                            10.5263  |                     5.26316 |                          36.8421 |                           15.7895  |                         0       |                                31.5789 |
+| All                                                      |               3.37079 |                                                            11.7978  |                     1.68539 |                          49.4382 |                            8.98876 |                         3.93258 |                                20.7865 |
+
+**Chi-Square Statistic**: 40.0215
+**p-value**: 0.0213
+
+**Statistically significant** (p < 0.05)
+
+### How familiar are you with cryptocurrencies in general? vs What is your gender?
+| How familiar are you with cryptocurrencies in general?   |   Female |    Male |   Other |
+|:---------------------------------------------------------|---------:|--------:|--------:|
+| Extremely familiar                                       |  53.8462 | 46.1538 | 0       |
+| Moderately familiar                                      |  50      | 50      | 0       |
+| Not at all familiar                                      |  85.1852 | 14.8148 | 0       |
+| Slightly familiar                                        |  64.7059 | 33.3333 | 1.96078 |
+| Very familiar                                            |  52.6316 | 42.1053 | 5.26316 |
+| All                                                      |  65.7303 | 33.1461 | 1.1236  |
+
+**Chi-Square Statistic**: 19.3175
+**p-value**: 0.0133
+
+**Statistically significant** (p < 0.05)
+
+### How familiar are you with cryptocurrencies in general? vs What is your current annual household income level?
+| How familiar are you with cryptocurrencies in general?   |   $100,000 to $119,999 |   $120,000 to $139,999 |   $140,000 or more |   $20,000 to $39,999 |   $40,000 to $59,999 |   $60,000 to $79,999 |   $80,000 to $99,999 |   Under $20,000 |
+|:---------------------------------------------------------|-----------------------:|-----------------------:|-------------------:|---------------------:|---------------------:|---------------------:|---------------------:|----------------:|
+| Extremely familiar                                       |                3.84615 |                0       |           15.3846  |              23.0769 |             19.2308  |             15.3846  |              3.84615 |        19.2308  |
+| Moderately familiar                                      |                0       |               10.7143  |            7.14286 |              21.4286 |             35.7143  |             10.7143  |             10.7143  |         3.57143 |
+| Not at all familiar                                      |                5.55556 |                1.85185 |            0       |              33.3333 |             11.1111  |              7.40741 |              1.85185 |        38.8889  |
+| Slightly familiar                                        |                1.96078 |                1.96078 |            7.84314 |              41.1765 |              9.80392 |              1.96078 |              3.92157 |        31.3725  |
+| Very familiar                                            |                5.26316 |                0       |           21.0526  |              26.3158 |             21.0526  |             10.5263  |              0       |        15.7895  |
+| All                                                      |                3.37079 |                2.80899 |            7.86517 |              31.4607 |             16.8539  |              7.86517 |              3.93258 |        25.8427  |
+
+**Chi-Square Statistic**: 52.2858
+**p-value**: 0.0036
+
+**Statistically significant** (p < 0.05)
+
+### What is your overall opinion of cryptocurrencies? vs How old are you?
+| What is your overall opinion of cryptocurrencies?         |    18-24 |   25-34 |   35-44 |    45-54 |    55-64 |   Above 64 |   Under 18 |
+|:----------------------------------------------------------|---------:|--------:|--------:|---------:|---------:|-----------:|-----------:|
+| Favorable                                                 | 10.5263  | 26.3158 | 15.7895 | 26.3158  | 10.5263  |   10.5263  |   0        |
+| I have never heard of cryptocurrencies before this survey | 27.7778  |  0      | 22.2222 | 27.7778  |  5.55556 |   11.1111  |   5.55556  |
+| Neutral                                                   | 18.9189  | 22.973  | 17.5676 | 14.8649  | 17.5676  |    8.10811 |   0        |
+| Unfavorable                                               | 11.1111  | 11.1111 | 22.2222 | 11.1111  | 22.2222  |   22.2222  |   0        |
+| Very favorable                                            |  3.84615 | 30.7692 | 26.9231 | 19.2308  | 15.3846  |    3.84615 |   0        |
+| Very unfavorable                                          |  9.09091 | 13.6364 | 22.7273 |  9.09091 | 22.7273  |   22.7273  |   0        |
+| All                                                       | 14.6893  | 19.774  | 20.339  | 16.9492  | 16.3842  |   11.2994  |   0.564972 |
+
+**Chi-Square Statistic**: 35.7029
+**p-value**: 0.2180
+
+**Not statistically significant**
+
+### What is your overall opinion of cryptocurrencies? vs Which of the following best describes your education status?
+| What is your overall opinion of cryptocurrencies?         |   No formal education |   Others (e.g. Junior College, Pre-University, Vocational, Academy) |   Primary/Elementary School |   Secondary School / High School |   University Postgraduate (Master) |   University Postgraduate (PhD) |   University Undergraduate (Bachelors) |
+|:----------------------------------------------------------|----------------------:|--------------------------------------------------------------------:|----------------------------:|---------------------------------:|-----------------------------------:|--------------------------------:|---------------------------------------:|
+| Favorable                                                 |               0       |                                                            10.5263  |                     0       |                          42.1053 |                           10.5263  |                         5.26316 |                                31.5789 |
+| I have never heard of cryptocurrencies before this survey |               5.55556 |                                                             5.55556 |                     0       |                          83.3333 |                            0       |                         5.55556 |                                 0      |
+| Neutral                                                   |               4.05405 |                                                            10.8108  |                     1.35135 |                          51.3514 |                            8.10811 |                         1.35135 |                                22.973  |
+| Unfavorable                                               |               5.55556 |                                                            33.3333  |                     0       |                          38.8889 |                            5.55556 |                         0       |                                16.6667 |
+| Very favorable                                            |               3.84615 |                                                             3.84615 |                     7.69231 |                          30.7692 |                           15.3846  |                        11.5385  |                                26.9231 |
+| Very unfavorable                                          |               0       |                                                            13.6364  |                     0       |                          50      |                           13.6364  |                         4.54545 |                                18.1818 |
+| All                                                       |               3.38983 |                                                            11.8644  |                     1.69492 |                          49.1525 |                            9.03955 |                         3.9548  |                                20.904  |
+
+**Chi-Square Statistic**: 40.0271
+**p-value**: 0.1043
+
+**Not statistically significant**
+
+### What is your overall opinion of cryptocurrencies? vs What is your gender?
+| What is your overall opinion of cryptocurrencies?         |   Female |    Male |   Other |
+|:----------------------------------------------------------|---------:|--------:|--------:|
+| Favorable                                                 |  73.6842 | 26.3158 | 0       |
+| I have never heard of cryptocurrencies before this survey |  88.8889 | 11.1111 | 0       |
+| Neutral                                                   |  71.6216 | 28.3784 | 0       |
+| Unfavorable                                               |  61.1111 | 38.8889 | 0       |
+| Very favorable                                            |  38.4615 | 57.6923 | 3.84615 |
+| Very unfavorable                                          |  59.0909 | 36.3636 | 4.54545 |
+| All                                                       |  66.1017 | 32.7684 | 1.12994 |
+
+**Chi-Square Statistic**: 19.0579
+**p-value**: 0.0395
+
+**Statistically significant** (p < 0.05)
+
+### What is your overall opinion of cryptocurrencies? vs What is your current annual household income level?
+| What is your overall opinion of cryptocurrencies?         |   $100,000 to $119,999 |   $120,000 to $139,999 |   $140,000 or more |   $20,000 to $39,999 |   $40,000 to $59,999 |   $60,000 to $79,999 |   $80,000 to $99,999 |   Under $20,000 |
+|:----------------------------------------------------------|-----------------------:|-----------------------:|-------------------:|---------------------:|---------------------:|---------------------:|---------------------:|----------------:|
+| Favorable                                                 |                0       |                5.26316 |           15.7895  |              21.0526 |              21.0526 |              5.26316 |              5.26316 |        26.3158  |
+| I have never heard of cryptocurrencies before this survey |                5.55556 |                0       |            0       |              16.6667 |               0      |              5.55556 |              0       |        72.2222  |
+| Neutral                                                   |                1.35135 |                2.7027  |            5.40541 |              35.1351 |              21.6216 |              5.40541 |              4.05405 |        24.3243  |
+| Unfavorable                                               |                0       |                5.55556 |            5.55556 |              38.8889 |              11.1111 |             16.6667  |              0       |        22.2222  |
+| Very favorable                                            |                7.69231 |                0       |           15.3846  |              23.0769 |              19.2308 |             19.2308  |              7.69231 |         7.69231 |
+| Very unfavorable                                          |                9.09091 |                4.54545 |            9.09091 |              45.4545 |              13.6364 |              0       |              4.54545 |        13.6364  |
+| All                                                       |                3.38983 |                2.82486 |            7.9096  |              31.6384 |              16.9492 |              7.9096  |              3.9548  |        25.4237  |
+
+**Chi-Square Statistic**: 54.0979
+**p-value**: 0.0206
+
+**Statistically significant** (p < 0.05)
+
+### Which of the following statements applies to you? vs How old are you?
+| Which of the following statements applies to you?            |    18-24 |   25-34 |   35-44 |   45-54 |    55-64 |   Above 64 |
+|:-------------------------------------------------------------|---------:|--------:|--------:|--------:|---------:|-----------:|
+| I currently own cryptocurrency (such as Bitcoin or Ethereum) |  8.33333 | 30.5556 | 22.2222 | 27.7778 |  5.55556 |    5.55556 |
+| I have never owned cryptocurrency                            | 16.0714  | 15.1786 | 19.6429 | 15.1786 | 18.75    |   15.1786  |
+| I have previously owned cryptocurrency, but no longer do     | 17.2414  | 24.1379 | 24.1379 | 10.3448 | 20.6897  |    3.44828 |
+| All                                                          | 14.6893  | 19.774  | 20.904  | 16.9492 | 16.3842  |   11.2994  |
+
+**Chi-Square Statistic**: 15.9721
+**p-value**: 0.1004
+
+**Not statistically significant**
+
+### Which of the following statements applies to you? vs Which of the following best describes your education status?
+| Which of the following statements applies to you?            |   No formal education |   Others (e.g. Junior College, Pre-University, Vocational, Academy) |   Primary/Elementary School |   Secondary School / High School |   University Postgraduate (Master) |   University Postgraduate (PhD) |   University Undergraduate (Bachelors) |
+|:-------------------------------------------------------------|----------------------:|--------------------------------------------------------------------:|----------------------------:|---------------------------------:|-----------------------------------:|--------------------------------:|---------------------------------------:|
+| I currently own cryptocurrency (such as Bitcoin or Ethereum) |               2.77778 |                                                             5.55556 |                     2.77778 |                          33.3333 |                           13.8889  |                        11.1111  |                                30.5556 |
+| I have never owned cryptocurrency                            |               2.67857 |                                                            15.1786  |                     0       |                          56.25   |                            7.14286 |                         2.67857 |                                16.0714 |
+| I have previously owned cryptocurrency, but no longer do     |               3.44828 |                                                             6.89655 |                     6.89655 |                          44.8276 |                           10.3448  |                         0       |                                27.5862 |
+| All                                                          |               2.82486 |                                                            11.8644  |                     1.69492 |                          49.7175 |                            9.03955 |                         3.9548  |                                20.904  |
+
+**Chi-Square Statistic**: 23.8997
+**p-value**: 0.0210
+
+**Statistically significant** (p < 0.05)
+
+### Which of the following statements applies to you? vs What is your gender?
+| Which of the following statements applies to you?            |   Female |    Male |    Other |
+|:-------------------------------------------------------------|---------:|--------:|---------:|
+| I currently own cryptocurrency (such as Bitcoin or Ethereum) |  52.7778 | 47.2222 | 0        |
+| I have never owned cryptocurrency                            |  73.2143 | 25.8929 | 0.892857 |
+| I have previously owned cryptocurrency, but no longer do     |  51.7241 | 44.8276 | 3.44828  |
+| All                                                          |  65.5367 | 33.3333 | 1.12994  |
+
+**Chi-Square Statistic**: 9.6806
+**p-value**: 0.0462
+
+**Statistically significant** (p < 0.05)
+
+### Which of the following statements applies to you? vs What is your current annual household income level?
+| Which of the following statements applies to you?            |   $100,000 to $119,999 |   $120,000 to $139,999 |   $140,000 or more |   $20,000 to $39,999 |   $40,000 to $59,999 |   $60,000 to $79,999 |   $80,000 to $99,999 |   Under $20,000 |
+|:-------------------------------------------------------------|-----------------------:|-----------------------:|-------------------:|---------------------:|---------------------:|---------------------:|---------------------:|----------------:|
+| I currently own cryptocurrency (such as Bitcoin or Ethereum) |                5.55556 |                5.55556 |           19.4444  |              16.6667 |              19.4444 |             13.8889  |              5.55556 |         13.8889 |
+| I have never owned cryptocurrency                            |                2.67857 |                2.67857 |            4.46429 |              36.6071 |              16.0714 |              3.57143 |              3.57143 |         30.3571 |
+| I have previously owned cryptocurrency, but no longer do     |                3.44828 |                0       |            6.89655 |              31.0345 |              17.2414 |             17.2414  |              3.44828 |         20.6897 |
+| All                                                          |                3.38983 |                2.82486 |            7.9096  |              31.6384 |              16.9492 |              7.9096  |              3.9548  |         25.4237 |
+
+**Chi-Square Statistic**: 24.8207
+**p-value**: 0.0364
+
+**Statistically significant** (p < 0.05)
+
+### How likely are you to purchase cryptocurrency in the future? vs How old are you?
+| How likely are you to purchase cryptocurrency in the future?   |    18-24 |    25-34 |   35-44 |   45-54 |    55-64 |   Above 64 |   Under 18 |
+|:---------------------------------------------------------------|---------:|---------:|--------:|--------:|---------:|-----------:|-----------:|
+| Likely                                                         | 13.3333  | 23.3333  | 26.6667 | 16.6667 | 10       |   10       |   0        |
+| Neutral                                                        | 20       | 24.4444  | 17.7778 | 13.3333 | 17.7778  |    6.66667 |   0        |
+| Unlikely                                                       | 32       | 16       | 16      |  8      | 16       |   12       |   0        |
+| Very likely                                                    |  4.16667 | 37.5     | 20.8333 | 29.1667 |  4.16667 |    4.16667 |   0        |
+| Very unlikely                                                  |  7.40741 |  7.40741 | 22.2222 | 18.5185 | 24.0741  |   18.5185  |   1.85185  |
+| All                                                            | 14.6067  | 19.6629  | 20.7865 | 16.8539 | 16.2921  |   11.236   |   0.561798 |
+
+**Chi-Square Statistic**: 35.2549
+**p-value**: 0.0647
+
+**Not statistically significant**
+
+### How likely are you to purchase cryptocurrency in the future? vs Which of the following best describes your education status?
+| How likely are you to purchase cryptocurrency in the future?   |   No formal education |   Others (e.g. Junior College, Pre-University, Vocational, Academy) |   Primary/Elementary School |   Secondary School / High School |   University Postgraduate (Master) |   University Postgraduate (PhD) |   University Undergraduate (Bachelors) |
+|:---------------------------------------------------------------|----------------------:|--------------------------------------------------------------------:|----------------------------:|---------------------------------:|-----------------------------------:|--------------------------------:|---------------------------------------:|
+| Likely                                                         |               3.33333 |                                                             6.66667 |                     6.66667 |                          36.6667 |                            6.66667 |                         3.33333 |                                36.6667 |
+| Neutral                                                        |               0       |                                                            11.1111  |                     2.22222 |                          64.4444 |                            6.66667 |                         0       |                                15.5556 |
+| Unlikely                                                       |               4       |                                                            16       |                     0       |                          52      |                           16       |                         8       |                                 4      |
+| Very likely                                                    |               4.16667 |                                                             4.16667 |                     0       |                          29.1667 |                           20.8333  |                        12.5     |                                29.1667 |
+| Very unlikely                                                  |               5.55556 |                                                            16.6667  |                     0       |                          51.8519 |                            3.7037  |                         1.85185 |                                20.3704 |
+| All                                                            |               3.37079 |                                                            11.7978  |                     1.68539 |                          49.4382 |                            8.98876 |                         3.93258 |                                20.7865 |
+
+**Chi-Square Statistic**: 40.6484
+**p-value**: 0.0182
+
+**Statistically significant** (p < 0.05)
+
+### How likely are you to purchase cryptocurrency in the future? vs What is your gender?
+| How likely are you to purchase cryptocurrency in the future?   |   Female |    Male |   Other |
+|:---------------------------------------------------------------|---------:|--------:|--------:|
+| Likely                                                         |  53.3333 | 46.6667 | 0       |
+| Neutral                                                        |  68.8889 | 31.1111 | 0       |
+| Unlikely                                                       |  64      | 32      | 4       |
+| Very likely                                                    |  50      | 50      | 0       |
+| Very unlikely                                                  |  77.7778 | 20.3704 | 1.85185 |
+| All                                                            |  65.7303 | 33.1461 | 1.1236  |
+
+**Chi-Square Statistic**: 12.5217
+**p-value**: 0.1294
+
+**Not statistically significant**
+
+### How likely are you to purchase cryptocurrency in the future? vs What is your current annual household income level?
+| How likely are you to purchase cryptocurrency in the future?   |   $100,000 to $119,999 |   $120,000 to $139,999 |   $140,000 or more |   $20,000 to $39,999 |   $40,000 to $59,999 |   $60,000 to $79,999 |   $80,000 to $99,999 |   Under $20,000 |
+|:---------------------------------------------------------------|-----------------------:|-----------------------:|-------------------:|---------------------:|---------------------:|---------------------:|---------------------:|----------------:|
+| Likely                                                         |                3.33333 |                6.66667 |           16.6667  |              20      |             23.3333  |              6.66667 |              3.33333 |        20       |
+| Neutral                                                        |                2.22222 |                4.44444 |            0       |              33.3333 |             22.2222  |              6.66667 |              4.44444 |        26.6667  |
+| Unlikely                                                       |                4       |                0       |            8       |              24      |              8       |             16       |              4       |        36       |
+| Very likely                                                    |                8.33333 |                0       |           16.6667  |              16.6667 |             25       |             16.6667  |              8.33333 |         8.33333 |
+| Very unlikely                                                  |                1.85185 |                1.85185 |            5.55556 |              46.2963 |              9.25926 |              1.85185 |              1.85185 |        31.4815  |
+| All                                                            |                3.37079 |                2.80899 |            7.86517 |              31.4607 |             16.8539  |              7.86517 |              3.93258 |        25.8427  |
+
+**Chi-Square Statistic**: 41.6274
+**p-value**: 0.0470
+
+**Statistically significant** (p < 0.05)
+
