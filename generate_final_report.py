@@ -268,25 +268,218 @@ def generate_final_report(model: str):
             name="report_draft_agent",
             system_message="""You are the report draft agent...""",
             functions=[submit_report_draft, read_survey_results, read_objectives],
-            update_agent_state_before_reply=[UpdateSystemMessage("""...""")]
+            update_agent_state_before_reply=[UpdateSystemMessage("""
+            ROLE
+                You are the report draft agent for the report creation process.
+
+             YOUR TASK  
+                Produce the first complete draft of the final survey report, fully compliant 
+                with the task instructions.
+                Submit the draft report for review.
+
+             TOOLS  
+                • read_survey_results() - Load the survey results.  
+                • read_objectives() - Load the survey objectives.   
+                • submit_report_draft() - Submit the finished report draft.
+
+             WORKFLOW (complete in order)  
+                1. **Gather Source Material**  
+                    a. Call **read_survey_results** tool and study the individual survey reports. 
+                    b. Call **read_objectives** tool and study the survey objectives. 
+
+                2. **Write the Draft Report**  
+                    • Examine correlations between different responses and highlight significant takeaways from the data.
+
+                Expected Output:
+                    A comprehensive analysis draft that includes:
+                        1. Key trends and patterns in the survey responses.
+                        2. Insights derived from the results, particularly in relation to the survey objectives.
+                        3. Notable trends or unexpected findings.
+                        4. Differences in responses across demographic groups, if applicable.
+                        5. Potential implications of the findings.
+                        6. Any gaps in the data or areas that may require further investigation.
+                        7. Initial recommendations based on the analysis.
+                    
+                    • Base the report explicitly on the survey results.  
+
+                3. **Submit**  
+                    • After you have completed the report draft, use the **submit_report_draft** tool to submit it for review.  
+            """)]
         )
 
         report_review_agent = ConversableAgent(
             name="report_review_agent",
             system_message="You are the report review agent responsible for critical evaluation.",
             functions=[submit_feedback, read_survey_results, read_objectives],
-            update_agent_state_before_reply=[UpdateSystemMessage("""...""")]
+            update_agent_state_before_reply=[UpdateSystemMessage("""
+            ROLE
+                You are the report review agent responsible for critical evaluation.
+
+                YOUR TASK  
+                Perform a rigorous, constructive evaluation of the draft final survey report to ensure 
+                it fully satisfies the original task instructions and accurately reflects the individual survey reports.
+                Submit your feedback for revision.
+
+                TOOLS  
+                • read_survey_results() - Load the survey results.  
+                • read_objectives() - Load the survey objectives (used to create the draft report)  
+                • submit_feedback() - Submit structured feedback.
+
+                WORKFLOW-(complete in order)  
+                1. **Gather Context**  
+                   a. Call **read_survey_results** to review the survey results.  
+                   b. Call **read_objectives** to review the survey objectives (used to create the draft report).
+                   c. Review the report draft : {report_draft}  
+                   d. Review original task instructions, provided below:
+                      -----
+                      • Examine correlations between different responses and highlight significant takeaways from the data.
+
+                        Expected Output:
+                            A comprehensive analysis draft that includes:
+                                1. Key trends and patterns in the survey responses.
+                                2. Insights derived from the results, particularly in relation to the survey objectives.
+                                3. Notable trends or unexpected findings.
+                                4. Differences in responses across demographic groups, if applicable.
+                                5. Potential implications of the findings.
+                                6. Any gaps in the data or areas that may require further investigation.
+                                7. Initial recommendations based on the analysis.
+                    
+                        • Base the report explicitly on the survey results. 
+                      ----- 
+
+                2. **Evaluate the Draft Report** against:  
+                   • Instruction compliance & completeness  
+                   • Thematic accuracy and evidence support (statistical analysis)  
+                   • Clarity, logic, and flow of writing  
+                   • Neutrality and stakeholder-friendliness  
+
+                3. **Provide Feedback**
+                For the feedback you MUST provide the following:
+                    1. items: list of feedback items (see next section for the collection of feedback items)
+                    2. overall_assessment: Overall assessment of the draft report
+                    3. priority_issues: List of priority issues to address
+                    4. iteration_needed: Whether another iteration is needed (True or False)
+
+                    For each item within feedback, you MUST provide the following:
+                        1. section: The specific section the feedback applies to
+                        2. feedback: Detailed feedback explaining the issue
+                        3. severity: Rate as 'minor', 'moderate', 'major', or 'critical'
+                        4. recommendation: A clear, specific action to address the feedback
+
+                    Provide specific feedback with examples and clear recommendations for improvement.
+                    For each feedback item, specify which section it applies to and rate its severity.
+
+                    If this is a subsequent review iteration, also evaluate how well previous feedback was addressed.
+
+                4. **Submit Feedback**
+                - Use the submit_feedback tool when your review is complete, indicating whether another iteration is needed.
+            """)]
         )
 
         revision_agent = ConversableAgent(
             name="revision_agent",
-            system_message="""You are the report revision agent responsible for implementing feedback...""",
+            system_message="""
+            ROLE 
+            You are the report revision agent responsible for implementing feedback.
+
+            OBJECTIVE  
+            Incorporate reviewer feedback to produce an improved Markdown report that still satisfies the original task instructions.
+
+            INPUTS  
+            • Current report draft: {report_draft} 
+            • Feedback from review_agent: {feedback_collection} 
+            • Original task instructions are provided below:
+            -----
+            • Examine correlations between different responses and highlight significant takeaways from the data.
+
+                        Expected Output:
+                            A comprehensive analysis draft that includes:
+                                1. Key trends and patterns in the survey responses.
+                                2. Insights derived from the results, particularly in relation to the survey objectives.
+                                3. Notable trends or unexpected findings.
+                                4. Differences in responses across demographic groups, if applicable.
+                                5. Potential implications of the findings.
+                                6. Any gaps in the data or areas that may require further investigation.
+                                7. Initial recommendations based on the analysis.
+                    
+                        • Base the report explicitly on the survey results. 
+            -----
+
+            TOOLS 
+            • submit_revised_report() - Submit the revised report.
+
+
+            WORKFLOW (complete in order)  
+            1. **Analyze Feedback**  
+            • Sort feedback items by the reviewer's stated priority (or severity if no explicit order).  
+            • Verify whether any item conflicts with the original task instructions; if so, favor the original task 
+            instructions and note the conflict in the change log.
+
+            2. **Revise the Report**  
+            • Make targeted edits that directly address each feedback item.  
+            • Preserve existing strengths and accurate content.  
+            • Maintain all formatting constraints (e.g., no triple back-ticks; end with “# End of Report”).
+
+            3. **Document Changes**  
+            • Track and document the changes you make in a change log.
+
+            4. **Submit**  
+            • Use the submit_revised_report tool to submit the revised report, as well as the change log. The report may go through
+            multiple revision cycles depending on the feedback.
+            """,
             functions=[submit_revised_report]
         )
 
         finalization_agent = ConversableAgent(
             name="finalization_agent",
-            system_message="""You are the report finalization agent responsible for completing the process...""",
+            system_message="""
+            ROLE
+            You are the report finalization agent responsible for completing the process.
+
+            YOUR TASK:   
+            Produce a polished, delivery-ready Markdown report.
+
+            INPUTS  
+            • {report_draft} - the latest report version.  
+            • {feedback_collection} - the revision history.
+            • The original task instructions are provided below:
+            -----
+            • Examine correlations between different responses and highlight significant takeaways from the data.
+
+                        Expected Output:
+                            A comprehensive analysis draft that includes:
+                                1. Key trends and patterns in the survey responses.
+                                2. Insights derived from the results, particularly in relation to the survey objectives.
+                                3. Notable trends or unexpected findings.
+                                4. Differences in responses across demographic groups, if applicable.
+                                5. Potential implications of the findings.
+                                6. Any gaps in the data or areas that may require further investigation.
+                                7. Initial recommendations based on the analysis.
+                    
+                        • Base the report explicitly on the survey results. 
+            -----
+
+
+            TOOLS  
+            • finalize_report() - Submit the finished artefacts.
+
+            WORKFLOW (complete in order)  
+            1. **Assess Compliance**  
+            • Compare {report_draft} to the original task instructions; confirm every requirement is met.  
+            • Skim revision history {feedback_collection} to verify previous feedback was resolved.
+
+            2. **Polish the Report**  
+            • Correct residual issues in clarity, grammar, tone, or Markdown formatting.  
+            • Preserve analyst content; limit edits to minor improvements (no structural overhauls).  
+            • Ensure no triple back-ticks, proper headings, and that the document ends with “# End of Report”.
+
+            3. **Craft Revision Journey Summary**  
+            • 1-2 short paragraphs highlighting key iterations and how the report improved.
+
+            4. **Submit Final Report**
+            - Use the finalize_report tool when the report is complete and ready for delivery.
+            
+            """,
             functions=[finalize_report]
         )
 
@@ -356,3 +549,4 @@ def generate_final_report(model: str):
         print("Report creation did not complete successfully.")
         if final_context.get("has_error"):
             print(f"Error during {final_context.get('error_stage')} stage: {final_context.get('error_message')}")
+
