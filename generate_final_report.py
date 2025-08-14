@@ -543,11 +543,12 @@ def generate_final_report(model: str):
         print("Report creation completed successfully!")
         final_report_content = final_context['final_report'].get('content', '')
         os.makedirs("final_report", exist_ok=True)
-        with open("final_survey_report.md", "w", encoding="utf-8") as f:
+        with open("final_report/final_survey_report.md", "w", encoding="utf-8") as f:
             f.write(final_report_content)
     else:
         print("Report creation did not complete successfully.")
         if final_context.get("has_error"):
             print(f"Error during {final_context.get('error_stage')} stage: {final_context.get('error_message')}")
+
 
 
