@@ -67,7 +67,7 @@ def generate_final_report(model: str):
     # ---------------------------
     # Create output directory
     # ---------------------------
-    out_dir = Path("Final Report")
+    out_dir = Path("final_report")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # ---------------------------
@@ -549,4 +549,5 @@ def generate_final_report(model: str):
         print("Report creation did not complete successfully.")
         if final_context.get("has_error"):
             print(f"Error during {final_context.get('error_stage')} stage: {final_context.get('error_message')}")
+
 
