@@ -103,7 +103,7 @@ def generate_final_report(model: str):
             return f.read()
 
 
-    # Stage 2: Draft
+    # Stage 2: Drafting
     def submit_report_draft(content: Annotated[str, "Full text content of the report draft"],
                             context_variables: ContextVariables) -> ReplyResult:
         """Submit the initial report draft and advance to REVIEWING stage."""
@@ -115,7 +115,7 @@ def generate_final_report(model: str):
             context_variables=context_variables,
         )
 
-    # Stage 3: Review / Feedback
+    # Stage 3: Reviewing / Feedback
     class FeedbackItem(BaseModel):
         section: str
         feedback: str
@@ -148,7 +148,7 @@ def generate_final_report(model: str):
             context_variables=context_variables,
         )
 
-    # Stage 4: Revision
+    # Stage 4: Revising
     class RevisedReport(BaseModel):
         content: str
         changes_made: Optional[list[str]]
@@ -176,7 +176,7 @@ def generate_final_report(model: str):
                 context_variables=context_variables,
             )
 
-    # Stage 5: Finalization
+    # Stage 5: Finalizing
     def finalize_report(content: Annotated[str, "Full text content of the final report"],
                         context_variables: ContextVariables) -> ReplyResult:
         """Submit the final report and terminate workflow."""
@@ -484,4 +484,5 @@ def generate_final_report(model: str):
     else:
         print("Report creation did not complete successfully.")
         
+
 
