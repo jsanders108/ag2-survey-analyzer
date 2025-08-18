@@ -199,7 +199,7 @@ def generate_final_report(model: str):
             name="kickoff_agent",
             system_message="""
             You are the kickoff agent. You only initialize the workflow. Your job is to call 
-            kickoff_report_creation_process(context_variables).
+            kickoff_report_creation_process(context_variables: ContextVariables).
 
             Do not analyze data or produce narrative.
             """,
