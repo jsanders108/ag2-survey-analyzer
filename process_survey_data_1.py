@@ -1,24 +1,12 @@
-# -----------------------------------------------------------------------------------
-# AG2 Crypto Survey Data Processing Script (Version 1)
-#
-# This script uses AutoGen's multi-agent orchestration to perform automated data
+# =============================================================================
+# AG2 Final Report Generation Script
+# --------
+# This script uses AG2's multi-agent orchestration to perform automated data
 # processing on a cryptocurrency survey dataset. It coordinates between:
 #   - A Planner Agent (designs the analysis plan)
 #   - A Code Writer Agent (writes Python code for data analysis)
 #   - A Code Executor Agent (runs the generated code locally)
-#
-# The output is a Markdown report containing:
-#   1. Frequency tables for each survey question
-#   2. Crosstabulations between survey questions and demographic data
-#   3. Chi-square statistical tests
-#
-# Dependencies:
-#   pip install scipy tabulate python-dotenv ag2
-#
-# Notes:
-#   - Requires a valid OpenAI API key in your environment (.env file)
-#   - CSV file path and output directory are set in this script
-# -----------------------------------------------------------------------------------
+# =============================================================================
 
 from pathlib import Path
 from autogen import ConversableAgent, LLMConfig
@@ -33,29 +21,9 @@ load_dotenv()
 
 def process_survey_data_1(model: str):
     """
-    Orchestrates an AI-driven survey data processing workflow using AutoGen's agent
+    Orchestrates an AI-driven survey data processing workflow using AG2's agent
     collaboration pattern.
 
-    Parameters
-    ----------
-    model : str
-        The OpenAI model name to be used for LLM processing (e.g., "gpt-4").
-
-    Workflow
-    --------
-    1. Create output directory for generated report.
-    2. Configure LLM settings for all AI agents.
-    3. Define specialized agents:
-       - Planner: Creates the analysis plan without writing code.
-       - Code Writer: Generates complete, executable Python code for each step.
-       - Code Executor: Runs generated code in a controlled environment.
-    4. Set up the AutoPattern group chat to coordinate the workflow.
-    5. Provide initial user instructions for:
-       - Frequency tables (with counts & percentages)
-       - Crosstabulations for first five questions vs demographics
-       - Chi-square tests for statistical significance
-       - Final Markdown report generation
-    6. Run the group chat until "TERMINATE" signal is received.
     """
 
     # ---------------------------
@@ -170,8 +138,9 @@ def process_survey_data_1(model: str):
     # ---------------------------
     # File paths and report names
     # ---------------------------
-    file_path = "/Users/jsand/OneDrive/Desktop/AG2/Code_Interpreter/Crypto_Survey_Data.csv"
+    file_path = "/Users/jsand/OneDrive/Desktop/AG2/PORTFOLIO/Code_Interpreter/Crypto_Survey_Data.csv"
     report_name = "survey_results_run_1.md"
+
 
     # ---------------------------
     # Initial instructions for the AI workflow
@@ -208,3 +177,5 @@ def process_survey_data_1(model: str):
         messages=initial_message,
         max_rounds=50
     )
+
+
