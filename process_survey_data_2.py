@@ -1,23 +1,12 @@
-# -----------------------------------------------------------------------------------
-# AG2 Crypto Survey Data Processing Script (Version 2)
-#
-# This script is nearly identical to process_survey_data_1, but:
-#   - Outputs to "Report 2" directory
-#   - Saves results in 'survey_results_run_2.md'
-#
-# It uses AutoGen's multi-agent orchestration to automatically:
-#   1. Create frequency tables for all survey questions
-#   2. Generate crosstabulations between first five questions and demographics
-#   3. Perform chi-square statistical tests
-#   4. Compile results into a single Markdown file
-#
-# Dependencies:
-#   pip install scipy tabulate python-dotenv ag2
-#
-# Requirements:
-#   - An OpenAI API key must be available via environment variable (OPENAI_API_KEY)
-#   - CSV file path is hardcoded; adjust before running
-# -----------------------------------------------------------------------------------
+# =============================================================================
+# AG2 Final Report Generation Script
+# --------
+# This script uses AG2's multi-agent orchestration to perform automated data
+# processing on a cryptocurrency survey dataset. It coordinates between:
+#   - A Planner Agent (designs the analysis plan)
+#   - A Code Writer Agent (writes Python code for data analysis)
+#   - A Code Executor Agent (runs the generated code locally)
+# =============================================================================
 
 from pathlib import Path
 from autogen import ConversableAgent, LLMConfig
@@ -32,29 +21,9 @@ load_dotenv()
 
 def process_survey_data_2(model: str):
     """
-    Automates cryptocurrency survey analysis using AutoGen's agent collaboration pattern.
+    Orchestrates an AI-driven survey data processing workflow using AG2's agent
+    collaboration pattern.
 
-    Parameters
-    ----------
-    model : str
-        The OpenAI model name to be used for all LLM-based agents (e.g., "gpt-4").
-
-    Workflow
-    --------
-    1. Set up an output directory for the report.
-    2. Configure LLM parameters for all agents.
-    3. Create the following agents:
-       - Planner: Produces high-level action plans (no code writing).
-       - Code Writer: Generates complete, executable Python scripts.
-       - Code Executor: Runs generated scripts locally.
-       - User: Represents the requester in the workflow.
-    4. Define an AutoPattern coordination framework to manage inter-agent messaging.
-    5. Provide initial instructions for:
-       - Frequency table generation
-       - Crosstabulation creation
-       - Chi-square significance testing
-       - Markdown report compilation
-    6. Run the group chat until the workflow signals "TERMINATE".
     """
 
     # ---------------------------
@@ -75,9 +44,10 @@ def process_survey_data_2(model: str):
     )
 
     # ---------------------------
-    # Code Writer Agent system prompt
+    # System message for Code Writer Agent
     # ---------------------------
-    # Enforces complete, executable, self-contained code generation for data processing tasks.
+    # Defines strict rules for generating complete, error-free,
+    # self-contained Python scripts for data processing tasks.
     code_writer_system_message = """You are a skilled Code Writer who writes python code to solve  
     tasks specifically on data exploration, data analysis, data cleaning, feature  
     engineering and data processing tasks.  
@@ -168,12 +138,15 @@ def process_survey_data_2(model: str):
     # ---------------------------
     # File and report parameters
     # ---------------------------
-    file_path = "/Users/jsand/OneDrive/Desktop/AG2/Code_Interpreter/Crypto_Survey_Data.csv"
+    file_path = "/Users/jsand/OneDrive/Desktop/AG2/PORTFOLIO/Code_Interpreter/Crypto_Survey_Data.csv"
     report_name = "survey_results_run_2.md"
+    
 
     # ---------------------------
-    # Initial user instructions
+    # Initial instructions for the AI workflow
     # ---------------------------
+    # Specifies exact analysis requirements, output formatting,
+    # and file-saving rules.
     initial_message = f"""
         Please make the analysis of the CSV file {file_path}.
         It contains the results of a survey about cryptocurrencies.
@@ -204,5 +177,8 @@ def process_survey_data_2(model: str):
         messages=initial_message,
         max_rounds=50
     )
+
+
+
 
 
