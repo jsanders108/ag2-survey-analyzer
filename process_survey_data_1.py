@@ -138,7 +138,7 @@ def process_survey_data_1(model: str):
     # ---------------------------
     # File paths and report names
     # ---------------------------
-    file_path = "/Users/jsand/OneDrive/Desktop/AG2/PORTFOLIO/Code_Interpreter/Crypto_Survey_Data.csv"
+    file_path = "/Crypto_Survey_Data.csv"
     report_name = "survey_results_run_1.md"
 
 
@@ -177,5 +177,6 @@ def process_survey_data_1(model: str):
         messages=initial_message,
         max_rounds=50
     )
+
 
 
