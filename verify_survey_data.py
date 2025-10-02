@@ -27,15 +27,32 @@ def run_verification(model: str):
     print("Initiating the Report Verification Process...")
 
     # ---------------------------
-    # LLM configuration
+    # Configure LLM parameters
     # ---------------------------
-    llm_config = LLMConfig(
-        api_type="openai",
+    openai_llm_config = LLMConfig(
+        api_type="openai", 
         model=model,
         api_key=os.getenv("OPENAI_API_KEY"),
-        temperature=0,  # Deterministic output for reproducibility
+        temperature=0, # deterministic output
         cache_seed=None,
     )
+
+    # ---------------------------------------------------------------------
+    # OpenRouterLLM Configuration (commented out)
+    # ---------------------------------------------------------------------
+    # openrouter_llm_config = LLMConfig(
+    #     api_type="openai",  # AG2 uses the OpenAI-compatible client
+    #     base_url="https://openrouter.ai/api/v1",  # OpenRouter endpoint
+    #     api_key=os.environ["OPENROUTER_API_KEY"],  # set this in your env
+    #     model=model,  # or e.g. "anthropic/claude-3.5-sonnet"
+    #     temperature=0,  # Deterministic output for consistency
+    #     cache_seed=None,
+    #     parallel_tool_calls=False,
+    #     tool_choice="required", # Enforces structured function call sequence
+    #     price=[0.00025, 0.001] # Cost per 1000 tokens (numbers not important, but call will fail if not provided)  
+    # )
+
+    llm_config = openai_llm_config
 
     # ---------------------------
     # Shared context variables
@@ -57,8 +74,8 @@ def run_verification(model: str):
 
         """
         file_paths = {
-            "survey_report_1": "Report 1/survey_results_run_1.md",
-            "survey_report_2": "Report 2/survey_results_run_2.md",
+            "survey_report_1": "report_1/survey_results_run_1.md",
+            "survey_report_2": "report_2/survey_results_run_2.md",
         }
 
         for key, path in file_paths.items():
@@ -129,8 +146,13 @@ def run_verification(model: str):
                        (such as percentages, counts, means, etc.) must be the same in both reports.
 
                        Compare the statistics presented in each report. If all the statistics are consistent across both reports, 
-                       verification shall be considered successful (TRUE). If there are any discrepancies in the statistics — regardless 
-                       of formatting or phrasing — verification shall be considered unsuccessful (FALSE).
+                       verification shall be considered successful (TRUE). 
+                       
+                       If there are any discrepancies in the statistics — regardless 
+                       of formatting or phrasing — verification shall be considered unsuccessful (FALSE). 
+                       
+                       If one of the reports is missing a statistic or section (e.g., chi-square test results), verification shall 
+                       be considered unsuccessful (FALSE).
 
                        If verification is unsuccessful, provide a detailed explanation of the discrepancies in your feedback.
 
