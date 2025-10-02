@@ -3,6 +3,9 @@
 # --------
 # This script coordinates the full workflow for analyzing cryptocurrency survey data,
 # verifying results, and producing a final comprehensive report.
+
+# Make sure pandas, numpy, tabulate and scipy are installed
+
 # =============================================================================
 
 from process_survey_data_1 import process_survey_data_1
@@ -10,13 +13,23 @@ from process_survey_data_2 import process_survey_data_2
 from verify_survey_data import run_verification
 from generate_final_report import generate_final_report
 
+
 # ---------------------------
-# Model assignments for each step
+# OpenAI Model assignments for each step
 # ---------------------------
 process_data_1_model = "gpt-4.1-mini"    # Model for first report generation
 process_data_2_model = "gpt-4.1-mini"    # Model for second report generation
 verification_model = "gpt-4.1-mini"     # Model for report verification
-final_report_model = "gpt-4.1-mini"     # Model for final report creation
+final_report_model = "gpt-5"   # Model for final report generation
+
+# ---------------------------
+# OpenRouter Model assignments for each step (commented out)
+# ---------------------------
+#process_data_1_model = "anthropic/claude-3.7-sonnet"    # Model for first report generation
+#process_data_2_model = "anthropic/claude-3.7-sonnet"    # Model for second report generation
+#verification_model = "anthropic/claude-3.7-sonnet"     # Model for report verification
+#final_report_model = "anthropic/claude-3.7-sonnet"   # Model for final report generation
+
 
 # ---------------------------
 # Execute full pipeline
@@ -33,4 +46,5 @@ if __name__ == "__main__":
 
     # Step 4: Generate polished final report
     generate_final_report(final_report_model)
+
 
