@@ -43,8 +43,6 @@ def generate_final_report(model: str):
         cache_seed=None,
     )
 
-    llm_config = openai_llm_config
-
     # ---------------------------------------------------------------------
     # OpenRouterLLM Configuration (commented out)
     # ---------------------------------------------------------------------
@@ -501,6 +499,7 @@ def generate_final_report(model: str):
     else:
         print("Report creation did not complete successfully.")
         
+
 
 
 
