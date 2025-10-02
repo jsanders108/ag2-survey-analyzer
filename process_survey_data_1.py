@@ -15,6 +15,7 @@ from autogen.agentchat.group.patterns import AutoPattern
 from autogen.agentchat import initiate_group_chat
 from dotenv import load_dotenv
 import os
+from instructions.initial_message_run_1 import initial_message_run_1
 
 # Load environment variables from .env file (expects OPENAI_API_KEY)
 load_dotenv()
@@ -29,19 +30,36 @@ def process_survey_data_1(model: str):
     # ---------------------------
     # Create output directory
     # ---------------------------
-    out_dir = Path("Report 1")
+    out_dir = Path("report_1")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # ---------------------------
     # Configure LLM parameters
     # ---------------------------
-    llm_config = LLMConfig(
-        api_type="openai",
+    openai_llm_config = LLMConfig(
+        api_type="openai", 
         model=model,
         api_key=os.getenv("OPENAI_API_KEY"),
         temperature=0, # deterministic output
         cache_seed=None,
     )
+
+    # ---------------------------------------------------------------------
+    # OpenRouterLLM Configuration (commented out)
+    # ---------------------------------------------------------------------
+    # openrouter_llm_config = LLMConfig(
+    #     api_type="openai",  # AG2 uses the OpenAI-compatible client
+    #     base_url="https://openrouter.ai/api/v1",  # OpenRouter endpoint
+    #     api_key=os.environ["OPENROUTER_API_KEY"],  # set this in your env
+    #     model=model,  # or e.g. "anthropic/claude-3.5-sonnet"
+    #     temperature=0,  # Deterministic output for consistency
+    #     cache_seed=None,
+    #     parallel_tool_calls=False,
+    #     tool_choice="required", # Enforces structured function call sequence
+    #     price=[0.00025, 0.001] # Cost per 1000 tokens (numbers not important, but call will fail if not provided)
+    # )
+
+    llm_config = openai_llm_config
 
     # ---------------------------
     # System message for Code Writer Agent
@@ -135,46 +153,13 @@ def process_survey_data_1(model: str):
         }
     )
 
-    # ---------------------------
-    # File paths and report names
-    # ---------------------------
-    file_path = "/Crypto_Survey_Data.csv"
-    report_name = "survey_results_run_1.md"
-
-
-    # ---------------------------
-    # Initial instructions for the AI workflow
-    # ---------------------------
-    # Specifies exact analysis requirements, output formatting,
-    # and file-saving rules.
-    initial_message = f"""
-        Please make the analysis of the CSV file {file_path}.
-        It contains the results of a survey about cryptocurrencies.
-
-        1. Create frequency tables for each question in the survey. 
-        Each table should include the name of the question, as well as the number and percentage of responses 
-        for each answer choice. There should also be a total row at the bottom of the table. Remove any missing values, such as 'nan'
-
-        2. For the first five survey questions, create crosstabulations with each of the demographic questions. 
-        Each crosstab should show how responses to the survey question vary across different demographic groups.
-
-        3. Perform chi-square tests on each of these crosstabs to identify any statistically significant differences. 
-        Clearly indicate which results are statistically significant (e.g., p < 0.05).
-
-        4. Create a final report that includes ALL the frequency tables, crosstabs, and chi-square test results.
-        Do not add any additional insights or analysis. 
-
-        **Make sure all the tables and crosstabs are formatted in markdown in ONE file**
-
-        **Save the report in a new file named '{report_name}'**
-        """
 
     # ---------------------------
     # Start the group chat workflow
     # ---------------------------
     result, context, last_agent = initiate_group_chat(
         pattern=pattern,
-        messages=initial_message,
+        messages=initial_message_run_1,
         max_rounds=50
     )
 
