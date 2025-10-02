@@ -33,16 +33,34 @@ def generate_final_report(model: str):
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # ---------------------------
-    # LLM configuration
+    # Configure LLM parameters
     # ---------------------------
-    llm_config = LLMConfig(
-        api_type="openai",
+    openai_llm_config = LLMConfig(
+        api_type="openai", 
         model=model,
         api_key=os.getenv("OPENAI_API_KEY"),
-        temperature=0,
+        temperature=0, # deterministic output
         cache_seed=None,
-        tool_choice="required"  # Require explicit tool usage
     )
+
+    llm_config = openai_llm_config
+
+    # ---------------------------------------------------------------------
+    # OpenRouterLLM Configuration (commented out)
+    # ---------------------------------------------------------------------
+    #openrouter_llm_config = LLMConfig(
+    #    api_type="openai",  # AG2 uses the OpenAI-compatible client
+    #    base_url="https://openrouter.ai/api/v1",  # OpenRouter endpoint
+    #    api_key=os.environ["OPENROUTER_API_KEY"],  # set this in your env
+    #    model=model,  # or e.g. "anthropic/claude-3.5-sonnet"
+    #    temperature=0,  # Deterministic output for consistency
+    #    cache_seed=None,
+    #    parallel_tool_calls=False,
+    #    tool_choice="required", # Enforces structured function call sequence
+    #    price=[0.00025, 0.001] # Cost per 1000 tokens (numbers not important, but call will fail if not provided)   
+    #)
+
+    llm_config = openai_llm_config
 
     # ---------------------------
     # Enum for workflow stage tracking
@@ -77,6 +95,19 @@ def generate_final_report(model: str):
     # Tools & data models for each stage
     # ---------------------------
 
+    # File loaders (objectives and results)
+    def read_objectives(context_variables: ContextVariables) -> str:
+        """Read the survey objectives from 'documents/survey_objectives.md'."""
+        file_path = "documents/survey_objectives.md"
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    def read_survey_results(context_variables: ContextVariables) -> str:
+        """Read the survey results from 'report_1/survey_results_run_1.md'."""
+        file_path = "report_1/survey_results_run_1.md"
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    
     # Stage 1: Entry / Creation
     def kickoff_report_creation_process(context_variables: ContextVariables) -> ReplyResult:
         """Start the report creation process and advance to CREATING stage."""
@@ -88,20 +119,6 @@ def generate_final_report(model: str):
             target=AgentTarget(report_drafter_agent),
             context_variables=context_variables,
         )
-
-    # File loaders (objectives and results)
-    def read_objectives(context_variables: ContextVariables) -> str:
-        """Read the survey objectives from 'documents/survey_objectives.md'."""
-        file_path = "documents/survey_objectives.md"
-        with open(file_path, "r", encoding="utf-8") as f:
-            return f.read()
-
-    def read_survey_results(context_variables: ContextVariables) -> str:
-        """Read the survey results from 'Report 1/survey_results_run_1.md'."""
-        file_path = "Report 1/survey_results_run_1.md"
-        with open(file_path, "r", encoding="utf-8") as f:
-            return f.read()
-
 
     # Stage 2: Drafting
     def submit_report_draft(content: Annotated[str, "Full text content of the report draft"],
@@ -484,5 +501,7 @@ def generate_final_report(model: str):
     else:
         print("Report creation did not complete successfully.")
         
+
+
 
 
